@@ -25,7 +25,7 @@ module RubySheet
 
     def value
       return nil if @raw_value.nil?
-      return @raw_value.to_i if type == 'number'
+      return to_number(@raw_value) if type == 'number'
       return workbook_context.shared_strings.find(@raw_value.to_i) if type == 'string'
 
       @raw_value
@@ -41,6 +41,12 @@ module RubySheet
     def self.to_column_name(column_position, row_number)
       letters = column_position.to_s(26).tr(BASE_STR, LETTERS)
       "#{letters}#{row_number}"
+    end
+
+    protected
+
+    def to_number(value)
+      Integer(value, exception: false) || Float(value, exception: false)
     end
   end
 end

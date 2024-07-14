@@ -56,6 +56,22 @@ describe RubySheet::Cell do
       it 'returns the plain number' do
         expect(cell.value).to eq(3)
       end
+
+      context 'float' do
+        let(:cell) { described_class.new('A1', 'number', '3.14159', workbook_context) }
+
+        it 'returns a float' do
+          expect(cell.value).to eq(3.14159)
+        end
+      end
+
+      context 'negative float' do
+        let(:cell) { described_class.new('A1', 'number', '-5.2', workbook_context) }
+
+        it 'returns a negative float' do
+          expect(cell.value).to eq(-5.2)
+        end
+      end
     end
   end
 end
