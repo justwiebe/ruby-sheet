@@ -63,3 +63,6 @@ coverage.data
 
 # A debugging folder
 spec/fixtures/inspect
+
+# Excel lock files
+spec/fixtures/~$*

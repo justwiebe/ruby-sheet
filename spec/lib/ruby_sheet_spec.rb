@@ -16,5 +16,6 @@ describe RubySheet::Parser do
     expect(values[2]).to eq(['b', 'c', 'a', 'd', 'r', nil])
     expect(values[3]).to eq([nil, nil, nil, 'zz', nil, nil])
     expect(values[4]).to eq([5_566_778_899, 3.1415899999999999, 5_566_778_895.8584099, -33.4, -5, 0])
+    expect(values[5]).to eq(['Inline Formatting', nil, nil, nil, nil, nil])
   end
 end

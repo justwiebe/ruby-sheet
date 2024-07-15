@@ -17,7 +17,7 @@ module RubySheet
       return new([]) if strings_entry.nil?
 
       xml = Nokogiri::XML.parse(strings_entry.get_input_stream)
-      new(xml.css('t').map(&:text))
+      new(xml.css('si').map(&:text))
     end
 
     def find(index)
